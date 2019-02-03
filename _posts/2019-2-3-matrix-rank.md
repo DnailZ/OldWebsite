@@ -180,7 +180,7 @@ A=
 =BC
 $$
 
-若$$A_{m\times n}$$则$$B_{m\times r}$$,$$C_{r\times n}$$($$B、C$$皆满秩)为$A$的满秩分解。
+若$$A_{m\times n}$$则$$B_{m\times r}$$,$$C_{r\times n}$$($$B、C$$皆满秩)为$$A$$的满秩分解。
 
 有$$r=\operatorname{rank}A$$（若$$B、C$$不都满秩，则秩要小于$$r$$）
 
@@ -201,7 +201,7 @@ $$
 
 **相抵分解：**
 
-若 $$A \in F^{m \times n}$,$r=\operatorname{rank}A$$,有矩阵分解
+若 $$A \in F^{m \times n}$$,$$r=\operatorname{rank}A$$,有矩阵分解
 
 $$
 A=P
@@ -265,7 +265,7 @@ $$
 
 **证明：**
 
-先对 $A$ 作满秩分解
+先对 $$A$$ 作满秩分解
 
 $$
     A^TA
@@ -285,7 +285,7 @@ $$
 
 注意分解后四个阵的中间两个，如果中间这两个阵从整体上来说是一个可逆方阵，那么7显然成立。
 
-然后发现如果 $b_1,b_2,\ldots,b_r$ 相互正交，问题会非常简单。
+然后发现如果 $$b_1,b_2,\ldots,b_r$$ 相互正交，问题会非常简单。
 
 对 $$
 \begin{pmatrix}
@@ -348,7 +348,7 @@ $$
     \right)
 \leq
     \operatorname{rank}A+
-    \operatorname{rank}B$$，其中$P_1$、$Q_1$、$P_2$、$Q_2$任意。
+    \operatorname{rank}B$$，其中$$P_1$$、$$Q_1$$、$$P_2$$、$$Q_2$$任意。
 
 **9.** $$
     \operatorname{rank}(I-AB)
@@ -357,7 +357,7 @@ $$
     +   \operatorname{rank}(I-B)
 $$
 
-9可以由8推出$\left(I-AB=I-A+A(I-B) \right)$。
+9可以由8推出$$\left(I-AB=I-A+A(I-B) \right)$$。
 
 8是显然的。
 
