@@ -9,125 +9,127 @@ title:  "矩阵秩性质的证明思路分析"
 按照线性变换，矩阵有如下定义：
 
 $$
-\operatorname{rank}A
-    := \operatorname{dim}\operatorname{Im}{\scr{A}}
-    =  \operatorname{dim}\operatorname{Ker}^\bot{\scr{A}}
+\text{rank}A
+    := \text{dim}\text{Im}{\scr{A}}
+    =  \text{dim}\text{Ker}^\bot{\scr{A}}
 $$
 
-若定义 $${\scr{A}}U$$ 为对 $$U$$ 做线性变换 $${\scr{A}}$$ 得到的空间，则可以用下面的式子描述维数的变化：
+若定义 $${\scr{A}}U$$ 为对 $$U$$ 做线性变换 $${\scr{A}}​$$ 得到的空间，则可以用下面的式子描述维数的变化：
 
 $$
-    \operatorname{dim}{\scr{A}}U
-=   \operatorname{dim}
+\text{dim}{\scr{A}}U
+=   \text{dim}
         U\cap
-            \operatorname{Ker}^\bot{\scr{A}}
+            \text{Ker}^\bot{\scr{A}}
 $$
 
-用上面的式子再加上维数定理，就可以解决不少问题了。<br>
+用上面的式子再加上维数定理，就可以解决不少问题了。
 
 **1. (秩的乘法)** $$
-    \operatorname{rank}AB
+    \text{rank}AB
 \leq
-    \operatorname{min}\{
-        \operatorname{rank}A,
-        \operatorname{rank}B
+    \text{min}\{
+        \text{rank}A,
+        \text{rank}B
     \}$$
 
 **2. (Sylvester不等式)** $$
-    \operatorname{rank}AB
+    \text{rank}AB
 \geq
-    \operatorname{rank}A+
-    \operatorname{rank}B-
+    \text{rank}A+
+    \text{rank}B-
         n$$
 
 **3. (Frobenius不等式)** $$
-    \operatorname{rank}ABC+
-    \operatorname{rank}B
+    \text{rank}ABC+
+    \text{rank}B
 \geq
-    \operatorname{rank}AB+
-    \operatorname{rank}BC$$
+    \text{rank}AB+
+    \text{rank}BC$$
 
 这三个式子有一个共同点，都非常像集合论(测度?)的公式，特别是第二个式子，看起来有一种容斥原理的感觉。而第三个式子可以用Venn图看出它成立。
+
+![Octocat](https://dnailz.github.io/assets/images/Frobenius.png)
 
 下面以最难(其实更适合用分块矩阵方法)的第三个式子的证明为例。
 
 **证明：**
 
 $$
-    \operatorname{rank}ABC
-=   \operatorname{dim}\operatorname{Im}{\scr{ABC}}
-=   \operatorname{dim}{\scr{ABC}}V
-=   \operatorname{dim}{\scr{BC}}V\cap\operatorname{Ker}^\bot{\scr{A}}
+    \text{rank}ABC
+=   \text{dim}\text{Im}{\scr{ABC}}
+=   \text{dim}{\scr{ABC}}V
+=   \text{dim}{\scr{BC}}V\cap\text{Ker}^\bot{\scr{A}}
 $$
 
 由维数定理
 
 $$
-    \operatorname{dim}{\scr{BC}}V\cap\operatorname{Ker}^\bot{\scr{A}}
-=   \operatorname{rank}A+
-    \operatorname{rank}BC-
-    \operatorname{dim}\left({\scr{BC}}V+\operatorname{Ker}^\bot{\scr{A}}\right)
+    \text{dim}{\scr{BC}}V\cap\text{Ker}^\bot{\scr{A}}
+=   \text{rank}A+
+    \text{rank}BC-
+    \text{dim}\left({\scr{BC}}V+\text{Ker}^\bot{\scr{A}}\right)
 $$
 
 由$${\scr{BC}}V \subseteq{\scr{B}}V$$放缩
 
 $$
-    \operatorname{rank}ABC
+    \text{rank}ABC
 \geq
-    \operatorname{rank}A+
-    \operatorname{rank}BC-
-    \operatorname{dim}\left({\scr{B}}V+\operatorname{Ker}^\bot{\scr{A}}\right)
+    \text{rank}A+
+    \text{rank}BC-
+    \text{dim}\left({\scr{B}}V+\text{Ker}^\bot{\scr{A}}\right)
 $$
 
 再用维数定理,即有
 
 $$
-    \operatorname{rank}ABC
+    \text{rank}ABC
 \geq
-    \operatorname{rank}BC-
-    \operatorname{rank}B+
-    \operatorname{rank}AB
+    \text{rank}BC-
+    \text{rank}B+
+    \text{rank}AB
 $$
 
-注：以上证明假设 $${\scr{A,B,C}}\in \operatorname{Hom}(V,V)$$，即$$A$$、$$B$$、$$C$$为方阵，若不为方阵，可以把它用0补成方阵，不影响结果。
+注：以上证明假设 $${\scr{A,B,C}}\in \text{Hom}(V,V)$$，即$$A$$、$$B$$、$$C$$为方阵，若不为方阵，可以把它用0补成方阵，不影响结果。
 
 **4. (秩的加法)** $$
-    \operatorname{rank}\left(
+    \text{rank}\left(
         A+B
     \right)
 \leq
-    \operatorname{rank}A+
-    \operatorname{rank}B$$
+    \text{rank}A+
+    \text{rank}B$$
 
 **5. (等号成立的一个充分条件)** $$
     AB=BA=O,
-    \operatorname{rank}A^2=
-    \operatorname{rank}A
+    \text{rank}A^2=
+    \text{rank}A
 \quad\Rightarrow\quad
-    \operatorname{rank}\left(
+    \text{rank}\left(
         A+B
     \right)=
-    \operatorname{rank}A+
-    \operatorname{rank}B$$
+    \text{rank}A+
+    \text{rank}B$$
 
 从线性变换角度解释4还是有点麻烦的，需要两步放缩：
 
 $$
 ({\scr{A+B}})V\subseteq {\scr{A}}V+{\scr{B}}V,
-\operatorname{dim}{\scr{A}}V\cap{\scr{B}}V\geq0
+\text{dim}{\scr{A}}V\cap{\scr{B}}V\geq0
 $$
 
 不过这给证明5提供了思路，要证$$
-\operatorname{rank}\left(
+\text{rank}\left(
     A+B
 \right)=
-\operatorname{rank}A+
-\operatorname{rank}B$$只需以下两个条件(第一个条件的等价性容易证明)
+\text{rank}A+
+\text{rank}B$$只需以下两个条件(第一个条件的等价性容易证明)
 
 $$
 ({\scr{A+B}})V={\scr{A}}V+{\scr{B}}V
 \Leftrightarrow
-\operatorname{Ker}A+\operatorname{Ker}B=V,{\scr{A}}V\cap{\scr{B}}V=0
+\text{Ker}A+\text{Ker}B=V,{\scr{A}}V\cap{\scr{B}}V=0
 $$
 
 下面给出5的证明。
@@ -135,34 +137,34 @@ $$
 **证明：**
 
 由$$AB=BA=O,
-\operatorname{rank}A^2=
-\operatorname{rank}A$$有
+\text{rank}A^2=
+\text{rank}A$$有
 
 $$
-\operatorname{Im}{\scr{A}}\subseteq\operatorname{Ker}{\scr{B}},
-\operatorname{Im}{\scr{B}}\subseteq\operatorname{Ker}{\scr{A}},
-\operatorname{Im}{\scr{A}}\cap\operatorname{Ker}{\scr{A}}=0,
-\operatorname{Im}{\scr{A}}=\operatorname{Im}{\scr{A^2}}
+\text{Im}{\scr{A}}\subseteq\text{Ker}{\scr{B}},
+\text{Im}{\scr{B}}\subseteq\text{Ker}{\scr{A}},
+\text{Im}{\scr{A}}\cap\text{Ker}{\scr{A}}=0,
+\text{Im}{\scr{A}}=\text{Im}{\scr{A^2}}
 $$
 
 1）第一个条件比较复杂（涉及到$$A$$和$$A^2$$的关系），用抽象符号难以分析，这时候，不妨舍弃线性空间的符号。
 
-由$$\operatorname{Im}{\scr{A}}=\operatorname{Im}{\scr{A^2}}$$可设$$Ax=A^2y$$有
+由$$\text{Im}{\scr{A}}=\text{Im}{\scr{A^2}}$$可设$$Ax=A^2y$$有
 
 $$
 A(y-Ax)=0
 $$
 
-观察到$$\operatorname{Im}{\scr{A}}\subseteq\operatorname{Ker}{\scr{B}}$$,$$Ax\in\operatorname{Ker}{\scr{B}}$$，可任取 $$y$$ 必有 $$x$$ 使得$$y-Ax\in \operatorname{Ker}{\scr{A}}$$ 即：
+观察到$$\text{Im}{\scr{A}}\subseteq\text{Ker}{\scr{B}}$$,$$Ax\in\text{Ker}{\scr{B}}$$，可任取 $$y$$ 必有 $$x$$ 使得$$y-Ax\in \text{Ker}{\scr{A}}$$ 即：
 
 $$
-V\subseteq\operatorname{Ker}A+\operatorname{Ker}B
+V\subseteq\text{Ker}A+\text{Ker}B
 $$
 
 则第一个条件成立。
 
-2）由$$\operatorname{Im}{\scr{B}}\subseteq\operatorname{Ker}{\scr{A}},
-\operatorname{Im}{\scr{A}}\cap\operatorname{Ker}{\scr{A}}=0$$知第二个条件显然成立。
+2）由$$\text{Im}{\scr{B}}\subseteq\text{Ker}{\scr{A}},
+\text{Im}{\scr{A}}\cap\text{Ker}{\scr{A}}=0$$知第二个条件显然成立。
 
 ## 二、向量组与矩阵分解观点
 
@@ -182,7 +184,7 @@ $$
 
 若$$A_{m\times n}$$则$$B_{m\times r}$$,$$C_{r\times n}$$($$B、C$$皆满秩)为$$A$$的满秩分解。
 
-有$$r=\operatorname{rank}A$$（若$$B、C$$不都满秩，则秩要小于$$r$$）
+有$$r=\text{rank}A$$（若$$B、C$$不都满秩，则秩要小于$$r$$）
 
 把$$B$$、$$C$$分别写成线性无关的向量组，可以写成外积的形式：
 
@@ -201,7 +203,7 @@ $$
 
 **相抵分解：**
 
-若 $$A \in F^{m \times n}$$,$$r=\operatorname{rank}A$$,有矩阵分解
+若 $$A \in F^{m \times n}$$,$$r=\text{rank}A$$,有矩阵分解
 
 $$
 A=P
@@ -235,30 +237,30 @@ $$
 以上两种相互等价的矩阵分解性质上比较好，可以比较简单地证明秩的一些性质。
 
 **1. (秩的乘法)** $$
-    \operatorname{rank}AB
+    \text{rank}AB
 \leq
-    \operatorname{min}\{
-        \operatorname{rank}A,
-        \operatorname{rank}B
+    \text{min}\{
+        \text{rank}A,
+        \text{rank}B
     \}$$
 
 **4. (秩的加法)** $$
-    \operatorname{rank}\left(
+    \text{rank}\left(
         A+B
     \right)
 \leq
-    \operatorname{rank}A+
-    \operatorname{rank}B$$
+    \text{rank}A+
+    \text{rank}B$$
 
 以上两个性质可以分别由矩阵的满秩分解和满秩分解的外积形式证得，具体证明略。
 
 **6. (行秩等于列秩)** $$
-    \operatorname{rank}A
-=   \operatorname{rank}A^T$$
+    \text{rank}A
+=   \text{rank}A^T$$
 
 **7.（证明最小二乘法中的一个结论）**  $$
-    \operatorname{rank}A
-=   \operatorname{rank}A^TA$$
+    \text{rank}A
+=   \text{rank}A^TA$$
 
 矩阵分解方法可以很好地解决转置矩阵的问题。
 下面证明7。
@@ -313,66 +315,64 @@ $$R$$ 为上三角阵，$$R^TR$$ 可逆。
 
 **基本结论：**
 $$
-    \operatorname{rank}
+    \text{rank}
     \begin{pmatrix}
     A & O \\ 
     O & B \\
     \end{pmatrix}
-=   \operatorname{rank}A +
-    \operatorname{rank}B
+=   \text{rank}A +
+    \text{rank}B
 $$
 
 $$
-    \operatorname{rank}
+    \text{rank}
     \begin{pmatrix}
     A & O \\ 
     C & B \\
     \end{pmatrix}
 \geq
-    \operatorname{rank}A +
-    \operatorname{rank}B
+    \text{rank}A +
+    \text{rank}B
 $$
 
 $$
     A_1{\text{是 }}A{\text{ 的子矩阵}}
 \Rightarrow
-        \operatorname{rank}A_1
+        \text{rank}A_1
     \leq
-        \operatorname{rank}A
+        \text{rank}A
 $$
 
 
 **8.** $$
-    \operatorname{rank}\left(
+    \text{rank}\left(
         P_1AQ_1+P_2BQ_2
     \right)
 \leq
-    \operatorname{rank}A+
-    \operatorname{rank}B$$，其中$$P_1$$、$$Q_1$$、$$P_2$$、$$Q_2$$任意。
+    \text{rank}A+
+    \text{rank}B$$，其中$$P_1$$、$$Q_1$$、$$P_2$$、$$Q_2$$任意。
 
 **9.** $$
-    \operatorname{rank}(I-AB)
+    \text{rank}(I-AB)
 \leq
-        \operatorname{rank}(I-A)
-    +   \operatorname{rank}(I-B)
+        \text{rank}(I-A)
+    +   \text{rank}(I-B)
 $$
-
 9可以由8推出$$\left(I-AB=I-A+A(I-B) \right)$$。
 
 8是显然的。
 
 **证明：**
-
 $$
-    \operatorname{rank}A +
-    \operatorname{rank}B
-=   \operatorname{rank}
+    \text{rank}A +
+    \text{rank}B
+=   \text{rank}
         \begin{pmatrix}
             A & O \\
             O & B \\
         \end{pmatrix}\\
 \geq 
-    \operatorname{rank}
+    \text{rank}
         \begin{pmatrix}
             I & O \\
             O & P_2 \\
@@ -385,18 +385,18 @@ $$
             I & O \\
             O & Q_2 \\
         \end{pmatrix}
-=   \operatorname{rank}
+=   \text{rank}
         \begin{pmatrix}
             A & O \\
             O & P_2BQ_2 \\
         \end{pmatrix}\\
-=   \operatorname{rank}
+=   \text{rank}
         \begin{pmatrix}
             A & P_1A \\
             AQ_1 & P_2BQ_2+P_1AQ_1 \\
         \end{pmatrix}
 \geq
-    \operatorname{rank}\left(
+    \text{rank}\left(
         P_1AQ_1+P_2BQ_2
     \right)
 $$
