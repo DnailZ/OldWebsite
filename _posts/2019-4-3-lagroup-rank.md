@@ -174,7 +174,7 @@ $$
 ##### 3. 满秩分解
 
 $$
-\text{rank}(A) = r,\; \exist P \in F^{m \times r} \; Q\in F^{r \times n}(\text{P、Q满秩}),A=PQ
+\text{rank}(A) = r,\; \exists P \in F^{m \times r} \; Q\in F^{r \times n}(\text{P、Q满秩}),A=PQ
 $$
 
 ##### 4. 线性空间
@@ -213,7 +213,7 @@ $$
 
 $$
 \text{rank}(AB) = \text{rank}(A) \Leftrightarrow
-\exist X,ABX=A\\
+\exists X,ABX=A\\
 \text{rank}
 \begin{pmatrix}
 	A & O\\
@@ -221,9 +221,9 @@ $$
 \end{pmatrix}
 \geq
 \text{rank}(A) + \text{rank}(B)\Leftrightarrow
-\exist X,Y,AX+BY=C\\
+\exists X,Y,AX+BY=C\\
 \text{rank}(A)+\text{rank}(B)=\text{rank}(A+B) \Leftrightarrow
-\exist P,Q,
+\exists P,Q,
 A=P\begin{pmatrix}
 	I & O\\
 	O & O
