@@ -22,25 +22,25 @@ MP &: \{ p, p \rightarrow q\} \vdash q
 \end{align}
 $$
 
-证明 $p \rightarrow p$ ：
+证明 $$p \rightarrow p$$ ：
 
-![](./doc.assets/1.jpeg)
+![](https://github.com/DnailZ/DnailZ.github.io/blob/master/_posts/doc.assets/1.jpeg)
 
-1. 首先，$p \rightarrow p$ 显然不是$L1$ $L2$ $L3$ 中的公式，故它一定是$MP$ 得来的。
+1. 首先，$$p \rightarrow p$$ 显然不是$$L1$$ $$L2$$ $$L3$$ 中的公式，故它一定是$$MP$$ 得来的。
 
-    故设存在一个 $A$ 使得 $\{A, A \rightarrow (p \rightarrow p)\} \vdash p \rightarrow p$
+    故设存在一个 $$A$$ 使得 $$\{A, A \rightarrow (p \rightarrow p)\} \vdash p \rightarrow p$$
 
-2. 那么如何证明 $\{A, A \rightarrow (p \rightarrow p)\}$ 呢， 这两个式子相比较而言 $A \rightarrow (p \rightarrow p)$ 信息更丰富一些，故进一步研究 $A \rightarrow (p \rightarrow p)$ 。
+2. 那么如何证明 $$\{A, A \rightarrow (p \rightarrow p)\}$$ 呢， 这两个式子相比较而言 $$A \rightarrow (p \rightarrow p)$$ 信息更丰富一些，故进一步研究 $$A \rightarrow (p \rightarrow p)$$ 。
 
-    这样 $A \rightarrow (p \rightarrow p)$ 可以是$L1$，但是这样的话我们要证明$p$， 它是一个偶然式，不可证明，故舍去这种可能。
+    这样 $$A \rightarrow (p \rightarrow p)$$ 可以是$$L1$$，但是这样的话我们要证明$$p$$， 它是一个偶然式，不可证明，故舍去这种可能。
 
-    另一方面，$A \rightarrow (p \rightarrow p)$  可以由$MP$  得到，再设存在$B$ 使得 $\{A, B, B\rightarrow (A \rightarrow (p \rightarrow p))\}$  成立。
+    另一方面，$$A \rightarrow (p \rightarrow p)$$  可以由$$MP$$  得到，再设存在$$B$$ 使得 $$\{A, B, B\rightarrow (A \rightarrow (p \rightarrow p))\}$$  成立。
     
-3. 进一步，如何证明 $\{A, B, B\rightarrow (A \rightarrow (p \rightarrow p))\}$ 呢， 我们观察$B\rightarrow (A \rightarrow (p \rightarrow p))$ 发现：
+3. 进一步，如何证明 $$\{A, B, B\rightarrow (A \rightarrow (p \rightarrow p))\}$$ 呢， 我们观察$$B\rightarrow (A \rightarrow (p \rightarrow p))$$ 发现：
 
-    $B\rightarrow (A \rightarrow (p \rightarrow p))$ 作为$L2$ 非常合适，这样的话，如果令$B = p \rightarrow (C \rightarrow p)$ ，$A = p \rightarrow C$  发现此时，$B\rightarrow (A \rightarrow (p \rightarrow p))$ 就是$L2$ 。
+    $$B\rightarrow (A \rightarrow (p \rightarrow p))$$ 作为$$L2$$ 非常合适，这样的话，如果令$$B = p \rightarrow (C \rightarrow p)$$ ，$$A = p \rightarrow C$$  发现此时，$$B\rightarrow (A \rightarrow (p \rightarrow p))$$ 就是$$L2$$ 。
     
-4. 接下来，证明 $\{ p \rightarrow (C \rightarrow p), p \rightarrow C\}$  就行了，$p \rightarrow (C \rightarrow p)$ 本身构成$L1$ ，故可以直接忽略，$p \rightarrow C$ 可以通过令 $C=D  \rightarrow p$ 的方式构成 $L1$ 故证明完成。
+4. 接下来，证明 $$\{ p \rightarrow (C \rightarrow p), p \rightarrow C\}$$  就行了，$$p \rightarrow (C \rightarrow p)$$ 本身构成$$L1$$ ，故可以直接忽略，$$p \rightarrow C$$ 可以通过令 $$C=D  \rightarrow p$$ 的方式构成 $$L1$$ 故证明完成。
 
 我的证明器实现了这种方法（通过BFS，因为显然DFS会搜不到），反向输出证明如下：
 
@@ -56,11 +56,11 @@ $$
     5: p -> p                                            [MP1,4]
 ```
 
-这里 `<8>` 是一个非常奇怪的符号，它根上面证明的 $D$ 含义相同，表示任意公式，这里可以代入 $p$ 也可以代入 $p \rightarrow p$ 甚至随便你想要的公式，都可以完成证明，当然，课本使用的是 $p$。
+这里 `<8>` 是一个非常奇怪的符号，它根上面证明的 $$D$$ 含义相同，表示任意公式，这里可以代入 $$p$$ 也可以代入 $$p \rightarrow p$$ 甚至随便你想要的公式，都可以完成证明，当然，课本使用的是 $$p$$。
 
 从这里我们可以看到，其实 Resolution 方法非常符合人的证明习惯，如果是我的话，我可能会想着这样证明：
 
-![](./doc.assets/2.png)
+![](https://github.com/DnailZ/DnailZ.github.io/blob/master/_posts/doc.assets/2.png)
 
 自行观察就会发现，Resolution方法与人对这种定理的证明非常相似。
 
