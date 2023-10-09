@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: simple
 title:  "POPL-24 Artifact Evalation - Yuantian Ding"
 ---
 
