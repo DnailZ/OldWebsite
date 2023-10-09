@@ -36,9 +36,7 @@ artifact/
 
 ## Evaluation instructions
 
-### Evaluating an Entire Benchmark Set
-
-#### Hacker's Delight Benchmark
+### Hacker's Delight Benchmark
 
 Solving hacker's delight benchmarks involves interaction with a large language model. So please set up your openai api key for `gpt-turbo-3.5`. To test the effectiveness of LLM-guided enumeration, please set OPENAI_API_KEY in the environment variable:
 
