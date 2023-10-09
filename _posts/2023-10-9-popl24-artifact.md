@@ -4,7 +4,7 @@ title:  "POPL-24 Artifact Evalation - Yuantian Ding"
 ---
 
 
-# Claims in the paper
+## Claims in the paper
 
 * Biten outperforms CVC4, Probe, Duet, and Simba on all the 3 benchmark sets.
 * Biten generated smaller solution for Case-splitting and Deobfuscation Benchmark
@@ -15,7 +15,7 @@ title:  "POPL-24 Artifact Evalation - Yuantian Ding"
 
 Note: Biten is a name for our anonymous submission. Biten is actually part of our general SyGuS solver DryadSynth.
 
-# Download, and installation
+## Download, and installation
 
 The only file you need to download is `BitenArifact.ova`, located in the root of Zenodo.
 
@@ -33,11 +33,11 @@ artifact/
     README.md   <this file>
 ```
 
-# Evaluation instructions
+## Evaluation instructions
 
-## Evaluating an Entire Benchmark Set
+### Evaluating an Entire Benchmark Set
 
-### Hacker's Delight Benchmark
+#### Hacker's Delight Benchmark
 
 Solving hacker's delight benchmarks involves interaction with a large language model. So please set up your openai api key for `gpt-turbo-3.5`. To test the effectiveness of LLM-guided enumeration, please set OPENAI_API_KEY in the environment variable:
 
@@ -61,7 +61,7 @@ python3 scripts/bench.py hd-draw
 
 `hd-1.png`, `hd-2.png`, `hd-dc-1.png`, `hd-dc-2.png` will be created in the working deriectory.
 
-## Case-splitting PBE Benchmark
+### Case-splitting PBE Benchmark
 
 
 Run all the Case-splitting PBE Benchmark Benchmark for all solvers and all configurations:
@@ -80,7 +80,7 @@ python3 scripts/bench.py to-csv
 
 It will compose all json data into `results.csv`. It will also generate figure `sygus-time.png`, `sygus-size.png` which compare each solver on time and size.
 
-## Deobfuscation Benchmark
+### Deobfuscation Benchmark
 
 Run all the Deobfuscation Benchmark Benchmark for all solvers and all configurations:
 
@@ -106,7 +106,7 @@ It will compose all json data into `results1.csv`. It will also generate figure 
 * `deobfusc-deduct.png`: Deobfuscation benchmark W/ and W/o Bottom-up Deduction
 * `deobfusc-graph.png`: Deobfuscation benchmark W/ and W/o Graph-based Enumeration
 
-## Testting a Single Benchmark Manuelly
+### Testting a Single Benchmark Manuelly
 
 Biten's executable is located at `solvers/biten/biten`. A TOML file can be passed into `biten` for configuration using the following command:
 
@@ -135,7 +135,7 @@ filter = {
 `-v` flag can be passed into `biten` command to display log information.
 
 
-# Additional Information
+## Additional Information
 
 * Testing all Deobfuscation benchmarks for all solver set will cost 6 hours or more.
 * You can lookup any specific result in the results/ folder, each json file is in the following format:
