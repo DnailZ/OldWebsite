@@ -3,7 +3,7 @@ layout: simple
 title:  "POPL-24 Artifact Evalation - Yuantian Ding"
 ---
 
-# POPL-24 Artifact Evalation - Yuantian Ding
+# POPL-24 Artifact Evaluation - Yuantian Ding
 
 ## Claims in the paper
 
@@ -20,7 +20,9 @@ Note: Biten is a name for our anonymous submission. Biten is actually part of ou
 
 The only file you need to download is `BitenArifact.ova`, you can download this file from [OneDrive](https://purdue0-my.sharepoint.com/:u:/g/personal/ding360_purdue_edu/EeAL4PYsLThDkEdLB_iLOLsBS0_6oVxFqA659VS0RPz89g?e=eTOsw1).
 
-The image can be loaded by VirtualBox 7. It can be logged in using `username: virtualbox` and `password: changeme`.
+The image can be loaded by VirtualBox 7. We recommend using at least 4 CPUs and at least 8 GB memory. 
+
+Once the VM starts, it can be logged in with `username: virtualbox` and `password: changeme` via SSH at localhost:2222. You can also use [VS Code Remote SSH](https://code.visualstudio.com/docs/remote/ssh) to connect to the VM.
 
 All related files are under the directory `/home/virtualbox/artifact`. Everything is installed in the VM, no need to run any compilation.
 
@@ -31,7 +33,8 @@ artifact/
     scripts/    all scripts you need to run the test
     benchmarks/     All 3 benchmark sets
     solvers/    4 solvers used in the test
-    README.md   <this file>
+    clean.sh    remove all files generated during testing 
+    README.md   a copy this file (without OneDrive link)
 ```
 
 ## Evaluation instructions
@@ -136,7 +139,7 @@ filter = {
 
 ## Additional Information
 
-* Testing all Deobfuscation benchmarks for all solver set will cost 6 hours or more.
+* Testing all Deobfuscation benchmarks for all solver set and all configurations will cost 6 hours or more.
 * You can lookup any specific result in the results/ folder, each json file is in the following format:
     ```
     {
@@ -147,3 +150,4 @@ filter = {
         "command": <command for the execution>,
     }
     ```
+* For questions, please email me at ding360@purdue.edu. I will be happy to help you with any problems.
