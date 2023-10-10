@@ -18,7 +18,7 @@ Note: Biten is a name for our anonymous submission. Biten is actually part of ou
 
 ## Download, and installation
 
-The only file you need to download is `BitenArifact.ova`, located in the root of Zenodo.
+The only file you need to download is `BitenArifact.ova`, you can download this file from [OneDrive](https://purdue0-my.sharepoint.com/:u:/g/personal/ding360_purdue_edu/EeAL4PYsLThDkEdLB_iLOLsBS0_6oVxFqA659VS0RPz89g?e=eTOsw1).
 
 The image can be loaded by VirtualBox 7. It can be logged in using `username: virtualbox` and `password: changeme`.
 
@@ -92,7 +92,7 @@ All results are generated in `json` file under `result1/`.
 Generate all data in CSV with the following command:
 
 ```
-python3 scripts/runbench.py to-csv2
+python3 scripts/runbench.py to-csv-2
 ```
 
 It will compose all json data into `results1.csv`. It will also generate figure `deobfusc-time.png`, `deobfusc-size.png` which compare each solver on time and size.
