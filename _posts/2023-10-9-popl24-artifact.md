@@ -140,6 +140,7 @@ filter = {
 ## Additional Information
 
 * Testing all Deobfuscation benchmarks for all solver set and all configurations will cost 6 hours or more.
+* To check if the benchmarks run as expected, we provide a list of our experimental results in our [Appendix](https://dnailz.github.io/assets/appendix.pdf).
 * You can lookup any specific result in the results/ folder, each json file is in the following format:
     ```
     {
