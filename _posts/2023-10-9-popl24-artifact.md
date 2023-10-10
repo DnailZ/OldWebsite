@@ -41,7 +41,7 @@ artifact/
 
 ### Hacker's Delight Benchmark
 
-Solving hacker's delight benchmarks involves interaction with a large language model. So please set up your openai api key for `gpt-turbo-3.5`. To test the effectiveness of LLM-guided enumeration, please set OPENAI_API_KEY in the environment variable:
+Solving hacker's delight benchmarks involves interaction with a large language model. So please set up your **OpenAI API key** for `gpt-turbo-3.5`. To test the effectiveness of LLM-guided enumeration, please set `OPENAI_API_KEY` in the environment variable:
 
 ```bash
 export OPENAI_API_KEY=<your key>
@@ -53,7 +53,7 @@ Use the following to run all the Hacker's Delight Benchmark (Ablation Study incl
 python3 scripts/bench.py hd-run
 ```
 
-All results are generated in `json` file under `results/`. The process can be interruped in the middle, all tested results will be saved in `results` directory. You can restart the process by running `scripts/bench.py hd-run` again. All tested results will be skipped. To rerun the whole test, please `rm -r results` and run `scripts/bench.py hd-run` again.
+All results are generated in `json` file under `results/`. The procedure may be halted during execution, but any completed test results will be preserved within the `results/` folder. To resume the process, simply execute `scripts/bench.py hd-run` once more, and any previously tested results will be skipped. If you wish to rerun the entire test, you can achieve this by deleting the `results` directory, and then running `scripts/bench.py hd-run` again.
 
 Generate figures for each configuration:
 
@@ -61,54 +61,54 @@ Generate figures for each configuration:
 python3 scripts/bench.py hd-draw
 ```
 
-`hd-1.png`, `hd-2.png`, `hd-dc-1.png`, `hd-dc-2.png` will be created in the working deriectory.
+`hd-1.png`, `hd-2.png`, `hd-dc-1.png`, `hd-dc-2.png` will be created in the working directory.
 
 ### Case-splitting PBE Benchmark
 
 
-Run all the Case-splitting PBE Benchmark Benchmark for all solvers and all configurations:
+Run all the Case-splitting PBE benchmarks for all solvers and all configurations:
 
-```
+```bash
 python3 scripts/runbench.py run
 ```
 
-All results are generated in `json` file under `result0/`. 
+All results are generated in `json` file under `result0/`. This command shares similar semantics with `scripts/bench.py hd-run`.
 
 Generate all data in CSV using the following command:
 
-```
+```bash
 python3 scripts/bench.py to-csv
 ```
 
-It will compose all json data into `results.csv`. It will also generate figure `sygus-time.png`, `sygus-size.png` which compare each solver on time and size.
+It will compose all `json` data into `results.csv`. It will also generate figure `sygus-time.png`, `sygus-size.png` which compare each solver on time and size.
 
 ### Deobfuscation Benchmark
 
-Run all the Deobfuscation Benchmark Benchmark for all solvers and all configurations:
+Run all the Deobfuscation benchmarks for all solvers and all configurations:
 
-```
+```bash
 python3 scripts/runbench.py run-deobfusc
 ```
 
-All results are generated in `json` file under `result1/`. 
+All results are generated in `json` file under `result1/`. This command shares similar semantics with `scripts/bench.py hd-run`. 
 
 Generate all data in CSV with the following command:
 
-```
+```bash
 python3 scripts/runbench.py to-csv-2
 ```
 
-It will compose all json data into `results1.csv`. It will also generate figure `deobfusc-time.png`, `deobfusc-size.png` which compare each solver on time and size.
+It will compose all JSON data into `results1.csv`. It will also generate figure `deobfusc-time.png`, `deobfusc-size.png` which compare each solver on time and size.
 
 
-`python3 scripts/runbench.py draw-scatter` will draw ablation study figures for Bottom-up deduction and Expedited enumeration. There are 4 figures generated from this command:
+`python3 scripts/runbench.py draw-scatter` will draw ablation study figures for Bottom-up deduction and Graph-based Enumeration. There are 4 figures generated from this command:
 
 * `sygus-deduct.png`: Case-splitting benchmark W/ and W/o Bottom-up Deduction
 * `sygus-graph.png`: Case-splitting benchmark W/ and W/o Graph-based Enumeration
 * `deobfusc-deduct.png`: Deobfuscation benchmark W/ and W/o Bottom-up Deduction
 * `deobfusc-graph.png`: Deobfuscation benchmark W/ and W/o Graph-based Enumeration
 
-### Testting a Single Benchmark Manuelly
+### Testing a Single Benchmark Manually
 
 Biten's executable is located at `solvers/biten/biten`. A TOML file can be passed into `biten` for configuration using the following command:
 
@@ -116,7 +116,7 @@ Biten's executable is located at `solvers/biten/biten`. A TOML file can be passe
 biten -c <config-file> <sygus-if-file>
 ```
 
-In `solvers/biten/config`, there are a lot of commonly used configuration files. Here is the default configuration file for PBE problems with explanation of each parameters:
+In `solvers/biten/config`, there are a lot of commonly used configuration files. Here is the default configuration file for PBE problems with explanation of each parameter:
 
 ```toml
 random_example = 10 # How many additional random examples are generated from reference implementation 
@@ -139,16 +139,16 @@ filter = {
 
 ## Additional Information
 
-* Testing all Deobfuscation benchmarks for all solver set and all configurations will cost 6 hours or more.
-* To check if the benchmarks run as expected, we provide a list of our experimental results in our [Appendix](https://dnailz.github.io/assets/appendix.pdf).
-* You can lookup any specific result in the results/ folder, each json file is in the following format:
+* Testing all benchmarks in one benchmark set for all solvers and all configurations will normally cost **6 hours or more**. For faster testing, consider change `TIMEOUT` variable in `./script/bench.py` and `./script/runbench.py` to a smaller value (in seconds).
+* To check if the benchmarks run as expected, we provide a list of our experimental results in our [Appendix](https://dnailz.github.io/assets/appendix.pdf). Please manually execute the `biten` command again to verify if the error is **temporary**, possibly caused by an OpenAI rate limit or an out-of-memory (OOM) kill.
+* You can look up any specific result in the `results/` folder, each `json` file is in the following format:
     ```
     {
-        "status": <"success" if the command returns 0, otherwise it could be "error" and "timeout">
+        "status": <"success" if the command returns 0, otherwise it could be "error" or "timeout">
         "stdout": <STDOUT>,
         "stderr": <STDERR>,
         "time": <time for the execution>
         "command": <command for the execution>,
     }
     ```
-* For questions, please email me at ding360@purdue.edu. I will be happy to help you with any problems.
+* For questions, please email me at **ding360@purdue.edu**. I will be happy to help you with any problems.
