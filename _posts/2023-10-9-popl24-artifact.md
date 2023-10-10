@@ -148,7 +148,6 @@ filter = {
 * Testing all benchmarks in one benchmark set for all solvers and all configurations will normally cost **6 hours or more**. For faster testing, consider change `TIMEOUT` variable in `./script/bench.py` and `./script/runbench.py` to a smaller value (in seconds).
 * To check if the benchmarks run as expected, we provide a list of our experimental results in our [Appendix](https://dnailz.github.io/assets/appendix.pdf). Please manually execute the `biten` command again to verify if the error is **temporary**, possibly caused by an OpenAI rate limit or an out-of-memory (OOM) kill.
 * For Hacker's Delight benchmarks, sometimes LLM-guidance fails to give good subexpressions, please try it for multiple times.
-* Some benchmarks require 32 GB memory to run properly, for example, `hd-19` can not be solved with a 16 GB VM, however, it can be solved in a 16 GB VM when LLM-guidance is disabled.
 * You can look up any specific result in the `results/` folder, each `json` file is in the following format:
     ```
     {
