@@ -61,7 +61,7 @@ python3 scripts/bench.py hd-run
 
 All results are generated in `json` file under `results/`. The procedure may be halted during execution, but any completed test results will be preserved within the `results/` folder. To resume the process, simply execute `scripts/bench.py hd-run` once more, and any previously tested results will be skipped. If you wish to rerun the entire test, you can achieve this by deleting the `results` directory, and then running `scripts/bench.py hd-run` again.
 
-Note: For some images downloaded before Oct 16, `python3 scripts/bench.py hd-run` will just take 1 minute to finish. This is due to misconfiguration of `scripts/bench.py`. Please change line 23-24 of `scripts/bench.py` from `TIMEOUT = 0.1`, `SLEEP_INTERVAL = 0.1` to `TIMEOUT = 600`, `SLEEP_INTERVAL = 150`. 
+Note: For some images downloaded before Oct 16, `python3 scripts/bench.py hd-run` will just take 1 minute to finish. Please change line 23-24 of `scripts/bench.py` from `TIMEOUT = 0.1`, `SLEEP_INTERVAL = 0.1` to `TIMEOUT = 600`, `SLEEP_INTERVAL = 150`, in order to run the benchmark properly.
 
 Generate figures for each configuration:
 
